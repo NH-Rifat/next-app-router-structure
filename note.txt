@@ -22,3 +22,12 @@ Inside any folder in the app directory, we’ll create a head.js file that will 
 ....................The page and layout file................
 Let’s create a folder parallel to the pages directory and name it app. Create a layout.js file inside of app with the code below:
 
+.......................Nested layouts in Next.js 13................
+Creating the layout file is not only supported at the root but also at each folder level. Therefore, we can create a layout.js file inside of the sub-folder as well.
+
+Let’s name the second folder profile. We‘ll create two routes inside of this folder, which could manage the /student and /teacher profiles for a school’s web app like 
+
+profile------->student------->/profile/student
+profile------->teacher------->/profile/teacher
+profile------->layout.js 
+This layout file applies to both the student and the teacher

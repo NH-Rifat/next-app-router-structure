@@ -1,0 +1,24 @@
+.....................Routing with the app directory....................
+
+routing with the app directory is controlled via the folders inside of it. The UI for a particular route is defined by a page.jsx file inside of the folder.
+Therefore, a folder structure that looks like app/profile/settings/page.jsx will take care of rendering the /profile/settings route:
+
+......................loading.tsx file........................
+loading.tsx is an optional file that you can create within any directory inside of the app folder. It automatically wraps the page inside of a React suspense boundary. The component will be shown immediately on the first load as well as when you’re navigating between the sibling routes.
+
+............................error.tsx file...................
+error.tsx is an optional file that isolates the error to the smallest possible subsection of the app. Creating the error.tsx file automatically wraps the page inside of a React error boundary. Whenever any error occurs inside the folder where this file is placed, the component will be replaced with the contents of this component.
+
+.............................layout.tsx file.............................................
+You can use the layout.tsx file to define a UI that is shared across multiple places. A layout can render another layout or a page inside of it. Whenever a route changes to any component that is within the layout, its state is preserved because the layout component is not unmounted.
+
+...................Mandatory root layout..................
+There must be a file that defines the root layout at the top level of the app directory. This layout is applicable to all the routes in the app. In addition, the root layout must define the <html> and the <body> tags because Next.js doesn’t automatically add them.
+
+
+............................Head tag........................
+Inside any folder in the app directory, we’ll create a head.js file that will define the contents of the <head> tag for that folder. The component returned from this head.js file can only return certain limited tags like <title>, <meta>, <link>, and <script>.
+
+....................The page and layout file................
+Let’s create a folder parallel to the pages directory and name it app. Create a layout.js file inside of app with the code below:
+
